@@ -1,9 +1,6 @@
-import OpenAI from 'openai';
 import { json } from '@sveltejs/kit';
-import { OPENAI_API_KEY } from '$app/env/private';
+import { openai } from '#lib/server/openai.js';
 import type { RequestHandler } from './$types';
-
-const openai = new OpenAI({ apiKey: OPENAI_API_KEY });
 
 export const POST: RequestHandler = async ({ request }) => {
 	const { messages } = await request.json();
